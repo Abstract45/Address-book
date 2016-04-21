@@ -21,6 +21,8 @@
 		E8876C0E1CC969F3003A8849 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8876C0D1CC969F3003A8849 /* ContactsVC.swift */; };
 		E8876C111CC96B53003A8849 /* CustomContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8876C0F1CC96B53003A8849 /* CustomContactsCell.swift */; };
 		E8876C121CC96B53003A8849 /* CustomContactsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8876C101CC96B53003A8849 /* CustomContactsCell.xib */; };
+		E8876C151CC97CB0003A8849 /* AddContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8876C141CC97CB0003A8849 /* AddContactsVC.swift */; };
+		E8876C171CC9850D003A8849 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8876C161CC9850D003A8849 /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		E8876C0D1CC969F3003A8849 /* ContactsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		E8876C0F1CC96B53003A8849 /* CustomContactsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomContactsCell.swift; sourceTree = "<group>"; };
 		E8876C101CC96B53003A8849 /* CustomContactsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomContactsCell.xib; sourceTree = "<group>"; };
+		E8876C141CC97CB0003A8849 /* AddContactsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactsVC.swift; sourceTree = "<group>"; };
+		E8876C161CC9850D003A8849 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 		E8876BD11CC96247003A8849 /* AddressBook */ = {
 			isa = PBXGroup;
 			children = (
+				E8876C181CC98B79003A8849 /* Services */,
 				E8876C061CC963BA003A8849 /* Client */,
 				E8876C031CC9634C003A8849 /* Model */,
 				E8876C021CC96349003A8849 /* View */,
@@ -169,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				E8876C0B1CC967C1003A8849 /* Constants.swift */,
+				E8876C161CC9850D003A8849 /* Util.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -177,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				E8876C0D1CC969F3003A8849 /* ContactsVC.swift */,
+				E8876C141CC97CB0003A8849 /* AddContactsVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -213,6 +220,13 @@
 				E8876C101CC96B53003A8849 /* CustomContactsCell.xib */,
 			);
 			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		E8876C181CC98B79003A8849 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,7 +415,9 @@
 				E8876C081CC96424003A8849 /* Person.swift in Sources */,
 				E8876BD31CC96247003A8849 /* AppDelegate.swift in Sources */,
 				E8876C051CC96384003A8849 /* APIClient.swift in Sources */,
+				E8876C171CC9850D003A8849 /* Util.swift in Sources */,
 				E8876C0C1CC967C1003A8849 /* Constants.swift in Sources */,
+				E8876C151CC97CB0003A8849 /* AddContactsVC.swift in Sources */,
 				E8876C0E1CC969F3003A8849 /* ContactsVC.swift in Sources */,
 				E8876C111CC96B53003A8849 /* CustomContactsCell.swift in Sources */,
 			);

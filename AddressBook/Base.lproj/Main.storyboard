@@ -3,9 +3,17 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
-        <!--ContactsVC-->
+        <!--Contacts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ContactsVC" customModule="AddressBook" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,14 +49,115 @@
                             <constraint firstItem="4Id-iu-Xt0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="w4L-p4-UCO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0zL-qW-rKD"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="0zL-qW-rKD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mJE-Tf-rkI">
+                            <color key="tintColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="b7z-OE-MBJ" kind="show" identifier="addContacts" id="xcV-Yq-Wj5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="contactsTable" destination="4Id-iu-Xt0" id="k7W-YF-30M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1904" y="303"/>
+            <point key="canvasLocation" x="1828" y="303"/>
+        </scene>
+        <!--Add ContactsVC-->
+        <scene sceneID="ix6-CJ-ZkL">
+            <objects>
+                <viewController id="b7z-OE-MBJ" customClass="AddContactsVC" customModule="AddressBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PFQ-GF-Vt0"/>
+                        <viewControllerLayoutGuide type="bottom" id="M3Q-EX-u1D"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rdl-eb-DlK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NFE-A0-bpW">
+                                <rect key="frame" x="205" y="72" width="190" height="190"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="4RK-pA-efR"/>
+                                    <constraint firstAttribute="height" constant="190" id="EMj-Dr-fZ1"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZ1-e4-vi3">
+                                <rect key="frame" x="20" y="293" width="560" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uya-91-hhK">
+                                <rect key="frame" x="20" y="326" width="560" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="13X-kS-Vwm">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S6D-i1-qQe">
+                                        <rect key="frame" x="280" y="0.0" width="280" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eol-Pg-Gvb">
+                                <rect key="frame" x="205" y="72" width="190" height="190"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="24"/>
+                                <state key="normal" title="Pick an Image">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="imagePickerPressed:" destination="b7z-OE-MBJ" eventType="touchUpInside" id="qxl-aS-YzG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTO-9X-SPK">
+                                <rect key="frame" x="249" y="378" width="102" height="30"/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DBN-dg-65y"/>
+                                    <constraint firstAttribute="width" constant="102" id="YCB-yK-gXp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="b7z-OE-MBJ" eventType="touchUpInside" id="74W-7I-HJ1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.43921568630000002" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="NFE-A0-bpW" firstAttribute="centerX" secondItem="rdl-eb-DlK" secondAttribute="centerX" id="10d-47-quq"/>
+                            <constraint firstItem="Eol-Pg-Gvb" firstAttribute="trailing" secondItem="NFE-A0-bpW" secondAttribute="trailing" id="3Du-9Q-hJS"/>
+                            <constraint firstItem="uya-91-hhK" firstAttribute="trailing" secondItem="rdl-eb-DlK" secondAttribute="trailingMargin" id="50C-3g-jdN"/>
+                            <constraint firstItem="jTO-9X-SPK" firstAttribute="centerX" secondItem="rdl-eb-DlK" secondAttribute="centerX" id="5aB-k2-Ka6"/>
+                            <constraint firstItem="NFE-A0-bpW" firstAttribute="top" secondItem="PFQ-GF-Vt0" secondAttribute="bottom" constant="8" id="7Ox-Q3-gzz"/>
+                            <constraint firstItem="GZ1-e4-vi3" firstAttribute="top" secondItem="Eol-Pg-Gvb" secondAttribute="bottom" constant="31" id="DTd-5M-nSX"/>
+                            <constraint firstItem="Eol-Pg-Gvb" firstAttribute="leading" secondItem="NFE-A0-bpW" secondAttribute="leading" id="KKT-R8-pDV"/>
+                            <constraint firstItem="uya-91-hhK" firstAttribute="top" secondItem="GZ1-e4-vi3" secondAttribute="bottom" constant="3" id="Kpc-et-iOd"/>
+                            <constraint firstItem="jTO-9X-SPK" firstAttribute="top" secondItem="uya-91-hhK" secondAttribute="bottom" constant="22" id="P5L-Jb-pkh"/>
+                            <constraint firstItem="GZ1-e4-vi3" firstAttribute="leading" secondItem="rdl-eb-DlK" secondAttribute="leading" constant="20" id="iRm-Xf-phg"/>
+                            <constraint firstItem="Eol-Pg-Gvb" firstAttribute="bottom" secondItem="NFE-A0-bpW" secondAttribute="bottom" id="pAU-S5-m3c"/>
+                            <constraint firstItem="uya-91-hhK" firstAttribute="leading" secondItem="rdl-eb-DlK" secondAttribute="leadingMargin" id="pGR-ug-OyB"/>
+                            <constraint firstItem="Eol-Pg-Gvb" firstAttribute="top" secondItem="NFE-A0-bpW" secondAttribute="top" id="poz-Xm-x0t"/>
+                            <constraint firstAttribute="trailing" secondItem="GZ1-e4-vi3" secondAttribute="trailing" constant="20" id="yeM-8O-Hg3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cellNumField" destination="13X-kS-Vwm" id="jYq-2V-cO1"/>
+                        <outlet property="emailField" destination="S6D-i1-qQe" id="TYp-9h-ER0"/>
+                        <outlet property="fullNameField" destination="GZ1-e4-vi3" id="qbD-zv-CeP"/>
+                        <outlet property="personImg" destination="NFE-A0-bpW" id="gaC-Fb-8g7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vvp-eG-eam" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2537" y="303"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Dh-Px-V1g">

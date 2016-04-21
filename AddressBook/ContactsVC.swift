@@ -29,6 +29,12 @@ class ContactsVC: UIViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "addContacts" {
+            let addContactsVC = segue.destinationViewController as! AddContactsVC
+            addContactsVC.delegate = self
+        }
+    }
 }
 
 // MARK:- UITableViewDelegate methods
@@ -58,5 +64,12 @@ extension ContactsVC: UITableViewDataSource {
             cell.configCell(contacts[indexPath.row])
             return cell
         }
+    }
+}
+
+extension ContactsVC: writeValueBackDelegate {
+    func getAddedContact(person: Person) {
+        contacts.append(person)
+        contactsTable.reloadData()
     }
 }

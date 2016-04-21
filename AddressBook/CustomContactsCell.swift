@@ -28,7 +28,12 @@ class CustomContactsCell: UITableViewCell {
     
     func configCell(data:Person) {
         personName.text = data.fullName
-        personImg.setImageWithURL(data.personImgURL)
+        if data.personImgURLString != "" {
+            let url = NSURL(string: data.personImgURLString)!
+            personImg.setImageWithURL(url)
+        } else {
+            personImg.image = data.imgFromPicker
+        }
         personNum.text = data.cellNum
         personEmail.text = data.email
     }

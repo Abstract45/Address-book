@@ -13,9 +13,10 @@ struct Person {
     private var _fullName:String!
     private var _cellNum:String!
     private var _phoneNum:String!
-    private var _personImgURL:NSURL!
+    private var _personImgURLString:String?
     private var _fullAddress:String!
     private var _email:String!
+    private var _imgFromPicker:UIImage!
     
     var fullName:String {
         return _fullName
@@ -26,14 +27,20 @@ struct Person {
     var phoneNum:String {
         return _phoneNum
     }
-    var personImgURL:NSURL {
-        return _personImgURL
+    var personImgURLString:String {
+        if _personImgURLString != nil {
+        return _personImgURLString!
+        }
+        return ""
     }
     var fullAddress:String {
         return _fullAddress
     }
     var email:String {
         return _email
+    }
+    var imgFromPicker:UIImage {
+        return _imgFromPicker
     }
     
     init(dict:JSON) {
@@ -48,14 +55,17 @@ struct Person {
         let state = addressDict["state"].stringValue.capitalizedString
         self._fullAddress = street + city + state
         
-        let imgURLString = dict["picture"]["thumbnail"].stringValue
-        
-        if let url = NSURL(string: imgURLString) {
-            self._personImgURL = url
-        }
+        self._personImgURLString = dict["picture"]["thumbnail"].stringValue
         
         self._cellNum = dict["cell"].stringValue
         self._email = dict["email"].stringValue
         self._phoneNum = dict["phone"].stringValue
+    }
+    
+    init(name:String, cellNum:String, image:UIImage, email:String) {
+        self._fullName = name
+        self._email = email
+        self._cellNum = cellNum
+        self._imgFromPicker = image
     }
 }

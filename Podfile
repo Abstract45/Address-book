@@ -5,7 +5,7 @@ use_frameworks!
 target 'AddressBook' do
 
 pod ‘SwiftyJSON’
-pod ‘Alamofire’
+pod ‘AFNetworking’
 
 end
 

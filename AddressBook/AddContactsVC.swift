@@ -18,6 +18,7 @@ class AddContactsVC: UIViewController,UIImagePickerControllerDelegate, UINavigat
     @IBOutlet weak var fullNameField:UITextField!
     @IBOutlet weak var emailField:UITextField!
     @IBOutlet weak var cellNumField:UITextField!
+    @IBOutlet weak var imgPickerBtn:UIButton!
     @IBOutlet weak var personImg:UIImageView! {
         didSet {
             personImg.roundedView()
@@ -26,9 +27,11 @@ class AddContactsVC: UIViewController,UIImagePickerControllerDelegate, UINavigat
     var imgPicker: UIImagePickerController!
     var delegate:writeValueBackDelegate? = nil
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.hideKeyboardWhenTappedAround()
         imgPicker = UIImagePickerController()
         imgPicker.delegate = self
     }
@@ -65,6 +68,10 @@ class AddContactsVC: UIViewController,UIImagePickerControllerDelegate, UINavigat
         imgPicker.dismissViewControllerAnimated(true) {
             self.personImg.image = image
         }
-        
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        imgPickerBtn.setTitle("Pick an Image", forState: .Normal)
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
